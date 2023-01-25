@@ -1,41 +1,86 @@
 import { Component } from 'react';
-
-import Title from '../tiltle/title';
-import Promo from '../promo/promo';
-import AboutUs from '../about-us/about-us';
-import OurBest from '../our-best/our-best';
-import Footer from '../footer/footer';
-import DividerBlack from '../divider-black/divider-black';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import './App.css';
 
-import solimo from '../../images/our_best_img/solimo.png';
-import presto from '../../images/our_best_img/presto.png';
-import aromistico from '../../images/our_best_img/aromistico.png';
+import MinePage from '../mine-page/mine-page';
+import OurCoffee from '../our-coffee/our-coffee';
+import OurCoffeeItem from '../our-coffee/our-coffee-item/our-coffee-item';
+import ForYourPleasure from '../for-your-pleasure/for-your-pleasure';
+
+import aromistico from '../../images/aromistico-img.png';
 
 class App extends Component {
-  
   constructor(props) {
     super(props);
     this.state = {
       data: [
-        { img: solimo, alt: 'coffe pacs', title: 'Solimo Coffee Beans 2 kg', price: '10.73$', id: 1 },
-        { img: presto, alt: 'coffe pacs', title: 'Presto Coffee Beans 1 kg', price: '15.99$', id: 2 },
-        { img: aromistico, alt: 'coffe pacs', title: 'AROMISTICO Coffee 1 kg', price: '6.99$', id: 3 }
+        {
+          img: aromistico,
+          alt: 'coffe pacs',
+          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+          country: 'Brazil',
+          price: '6.99$',
+          id: 1
+        },
+        {
+          img: aromistico,
+          alt: 'coffe pacs',
+          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+          country: 'Kenya',
+          price: '7.99$',
+          id: 2
+        },
+        {
+          img: aromistico,
+          alt: 'coffe pacs',
+          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+          country: 'Columbia',
+          price: '8.99$',
+          id: 3
+        },
+        {
+          img: aromistico,
+          alt: 'coffe pacs',
+          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+          country: 'Brazil',
+          price: '9.99$',
+          id: 4
+        },
+        {
+          img: aromistico,
+          alt: 'coffe pacs',
+          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+          country: 'Brazil',
+          price: '5.99$',
+          id: 5
+        },
+        {
+          img: aromistico,
+          alt: 'coffe pacs',
+          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+          country: 'Brazil',
+          price: '7.99$',
+          id: 6
+        }
       ]
     }
   }
 
   render() {
+
+    const { data } = this.state;
     return (
-      <div className="App">
-        <Title />
-        <Promo />
-        <AboutUs />
-        <OurBest data={this.state.data}/>
-        <Footer/>
-        <DividerBlack/>
-      </div>
+      <Router>
+        <div className="App">
+          <Routes>
+            <Route path='/' element={<MinePage />} />
+            <Route path='/*' element={<OurCoffee />} />
+            <Route path='/our-coffee-item/:coffeeId' element={<OurCoffeeItem data={data} />} />
+            <Route path='/for-your-pleasure' element={<ForYourPleasure/>} />
+          </Routes>
+        </div>
+      </Router>
     )
   }
 

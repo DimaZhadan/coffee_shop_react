@@ -11,7 +11,7 @@ const Promo = () => {
             <div className="promo__divider"><img src={dividerLogo} alt="Coffee seds" /></div>
             <div className="promo__text mt-35">We makes every day full of energy and taste</div>
             <div className="promo__text mt-20">Want to try our beans?</div>
-            <button className="promo__btn">More</button>
+            <button className="promo__btn" type='botton'>More</button>
          </div>
       </div>
    )
