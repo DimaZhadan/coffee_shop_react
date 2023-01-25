@@ -2,6 +2,7 @@ import { Component } from 'react';
 
 import Header from '../header/header';
 import ForYourPleasureTitle from './for-your-pleasure-title/for-your-pleasure-title';
+import ForYourPleasureDescr from './for-your-pleasure-descr/for-your-pleasure-descr';
 import OurCoffeeList from '../our-coffee/our-coffee-list/our-coffee-list';
 import Footer from '../footer/footer';
 
@@ -29,8 +30,9 @@ class ForYourPleasure extends Component {
       return (
          <div>
             <Header />
-            <ForYourPleasureTitle/>
-            <OurCoffeeList data={data}/>
+            <ForYourPleasureTitle />
+            <ForYourPleasureDescr />
+            <OurCoffeeList data={data} />
             <Footer />
          </div>
       )
